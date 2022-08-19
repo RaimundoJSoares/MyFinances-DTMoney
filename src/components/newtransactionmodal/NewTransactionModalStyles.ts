@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import * as Dialog from '@radix-ui/react-dialog';
+import * as RadioGroup from '@radix-ui/react-radio-group';
 
 export const Overlay = styled(Dialog.Overlay)`
 position: fixed; // mesmo se tiver scrool, ele fica fixo na tela
@@ -43,6 +44,7 @@ export const Content = styled(Dialog.Content)`
         }
 
         button[type="submit"]{ //IMPORTANTE , colocar o type, para que essa cor, não vaze para outros botões
+        height: 58px;
         border: 0; // para que o botão não tenha borda
         background : ${props => props.theme["green-500"]};
         color: ${props => props.theme.white};
@@ -82,7 +84,7 @@ line-height: 0;
 
 `
 
-export const TypeTransaction = styled.div`
+export const TypeTransaction = styled(RadioGroup.Root)`
 display: grid; // por ser um botão do lado do outro, precisa de grid
 grid-template-columns: repeat(2, 1fr); // coloca 2 botões no grid
 gap: 1rem; // espaçamento entre os botões
@@ -92,7 +94,7 @@ interface ButtonTypeTransactionProps {
     variant: "income" | "outcome";
 }
 
-export const ButtonTypeTransaction = styled.button<ButtonTypeTransactionProps>`
+export const ButtonTypeTransaction = styled(RadioGroup.Item)<ButtonTypeTransactionProps>`
 background: ${props => props.theme["gray-700"]};
 padding: 1rem;
 display: flex;
@@ -108,5 +110,19 @@ color: ${props => props.theme["gray-300"]};
 
 svg{
     color:${props => props.variant === "income" ? props.theme["green-300"] : props.theme["red-300"]}
+}
+
+&[data-state = 'unchecked']:hover {
+    background: ${props => props.theme["gray-600"]};
+    transition: background-color 0.2s;
+}
+
+&[data-state = 'checked'] { //quando meu RadioGroup.Item tiver como atributo cheked, ou seja, selecionado, eu vou adicionar um css a mais nele
+    color: ${props => props.theme.white};
+    background: ${props => props.variant === "income" ? props.theme["green-500"] : props.theme["red-500"]};
+
+    svg{
+        color: ${props => props.theme.white};
+    }
 }
 `

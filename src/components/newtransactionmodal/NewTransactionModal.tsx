@@ -10,7 +10,7 @@ import {
 
 export function NewTransactionModal() {
   return (
-    <div>
+    
       <Dialog.Portal>
         <Overlay />
 
@@ -27,12 +27,12 @@ export function NewTransactionModal() {
 
             <TypeTransaction>
 
-              <ButtonTypeTransaction variant="income">
+              <ButtonTypeTransaction  variant="income" value="income">
                 <ArrowCircleUp size={24} />
                 Entrada
               </ButtonTypeTransaction>
 
-              <ButtonTypeTransaction variant="outcome">
+              <ButtonTypeTransaction  variant="outcome" value='outcome'>
                 <ArrowCircleDown size={24} />
                 Saída
               </ButtonTypeTransaction>
@@ -43,6 +43,6 @@ export function NewTransactionModal() {
           </form>
         </Content>
       </Dialog.Portal>
-    </div>
+   
   );
 }
