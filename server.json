@@ -17,28 +17,20 @@
       "createdAt": "2022-08-19T15:56:35.881Z"
     },
     {
-      "descripton": "dev frontend",
+      "description": "dev front-end",
       "price": 15000,
       "category": "ti",
       "type": "income",
-      "createdAt": "2022-08-21T17:02:02.588Z",
+      "createdAt": "2022-08-21T23:10:26.760Z",
       "id": 3
     },
     {
-      "descripton": "dev frontend react",
-      "price": 5000,
-      "category": "ti",
+      "description": "financiamente",
+      "price": 2000,
+      "category": "despesas",
       "type": "outcome",
-      "createdAt": "2022-08-21T17:03:21.363Z",
+      "createdAt": "2022-08-21T23:10:55.883Z",
       "id": 4
-    },
-    {
-      "descripton": "dev frontend reacteeeeeeeeeeeeeee",
-      "price": 111,
-      "category": "dsfsdf",
-      "type": "income",
-      "createdAt": "2022-08-21T17:09:38.804Z",
-      "id": 5
     }
   ]
 }
