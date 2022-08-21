@@ -1,45 +1,46 @@
+import { useContext, useEffect, useState } from "react";
 import { Header } from "../../components/header/Header";
 import { Summary } from "../../components/summary/Summary";
+import { TransactionsContext } from "../../context/TransactionsContext";
+import { dataFormatter, priceFormatter } from "../../utils/formatter";
 import { SearchForm } from "./searchform/SearchForm";
-import { TransactionsColorHightlight, TransactionsContainer, TransactionsTable } from "./TransactionsStyles";
+import {
+  TransactionsColorHightlight,
+  TransactionsContainer,
+  TransactionsTable,
+} from "./TransactionsStyles";
 
-export function Transactions(){
-    return(
-        <>
-            <Header/>
-            <Summary/>
+export function Transactions() {
+  const { transactions } = useContext(TransactionsContext);
 
-            <TransactionsContainer>
-            <SearchForm/>
-            <TransactionsTable>  
-                <tbody>
-                    <tr>
-                        <td width="50%"> Desenvolvimento do site </td>
-                        <td> <TransactionsColorHightlight variant="income">R$ 12.000,00</TransactionsColorHightlight> </td>
-                        <td>Venda</td>
-                        <td>25/7/2022</td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> Desenvolvimento do site </td>
-                        <td><TransactionsColorHightlight variant="outcome">R$ 12.000,00</TransactionsColorHightlight></td>
-                        <td>Venda</td>
-                        <td>25/7/2022</td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> Desenvolvimento do site </td>
-                        <td><TransactionsColorHightlight variant="income">R$ 12.000,00</TransactionsColorHightlight></td>
-                        <td>Venda</td>
-                        <td>25/7/2022</td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> Desenvolvimento do site </td>
-                        <td><TransactionsColorHightlight variant="outcome">R$ 12.000,00</TransactionsColorHightlight></td>
-                        <td>Venda</td>
-                        <td>25/7/2022</td>
-                    </tr>    
-                </tbody>
-            </TransactionsTable>    
-            </TransactionsContainer>
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <Summary />
+
+      <TransactionsContainer>
+        <SearchForm />
+        <TransactionsTable>
+          <tbody>
+            {transactions.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <td width="50%"> {item.description} </td>
+                  <td>
+                    
+                    <TransactionsColorHightlight variant={item.type}>
+                        {item.type === 'outcome' && '- '}
+                      {priceFormatter.format(item.price)}
+                    </TransactionsColorHightlight>
+                  </td>
+                  <td>{item.category}</td>
+                  <td>{dataFormatter.format(new Date(item.createdAt))}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </TransactionsTable>
+      </TransactionsContainer>
+    </>
+  );
 }

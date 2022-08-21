@@ -32,7 +32,12 @@ button {
     border-radius: 6px;
     cursor: pointer;
 
-    &:hover{
+    &:disabled{
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover{  //aplica o hover, somente se ele não estiver desabilitado
         background: ${props => props.theme["green-500"]};
         border: ${props => props.theme["green-500"]};
         color: ${props => props.theme["white"]};
