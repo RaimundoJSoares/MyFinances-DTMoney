@@ -8,6 +8,7 @@ TypeScript <br>
 Styled Components <br>
 React-Hook-Form <br>
 Axios <br>
+Json-Server <br>
 phosphor-react <br>
 Zod <br>
 Radix-ui <br>
