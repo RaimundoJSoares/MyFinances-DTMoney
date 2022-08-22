@@ -1,6 +1,6 @@
 # MyFinances-DTMoney
-![image](https://user-images.githubusercontent.com/61881055/185561305-8900533b-3331-41e8-ae0d-04749f7481ad.png)
-![image](https://user-images.githubusercontent.com/61881055/185561358-ea11d083-d374-4225-8883-650b9c8a4a1e.png)
+![image](https://user-images.githubusercontent.com/61881055/185909322-6e8113c8-4ecb-45f1-a042-508f1a1dfd74.png)
+![image](https://user-images.githubusercontent.com/61881055/185909983-dcc48f66-57c6-4c8e-885b-f8a1e1245a4a.png)
 
 ## Technologies
 React JS <br>
